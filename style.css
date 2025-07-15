@@ -1,3 +1,7 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* RESET DASAR */
 * {
   box-sizing: border-box;
@@ -39,7 +43,7 @@ th {
 }
 
 button {
-  background-color: #4CAF50;
+  background-color: #0684df;
   color: white;
   padding: 8px 12px;
   border: none;
@@ -49,8 +53,8 @@ button {
   transition: background-color 0.2s ease-in-out;
 }
 
-button:hover {
-  background-color: #45a049;
+button:active {
+  background-color: #0077cc;
 }
 
 input, select {
@@ -125,6 +129,11 @@ nav button {
 }
 
 /* TOMBOL DANGER DAN EDIT */
+.btn-full {
+  width: 100%;
+  display: block;
+}
+
 button.hapus {
   background-color: #f44336;
 }
