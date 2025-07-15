@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kasir Bang Atuy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>💰 Kasir Bang Atuy</h1>
+    <nav>
+      <button onclick="showPage('produk')">Produk</button>
+      <button onclick="showPage('transaksi')">Transaksi</button>
+      <button onclick="showPage('histori')">Histori</button>
+    </nav>
+  </header>
+
+  <!-- Halaman Produk -->
+  <section id="halaman-produk" class="halaman">
+    <h2>📦 Kelola Produk</h2>
+    <form id="form-produk">
+      <input type="text" id="nama" placeholder="Nama produk" required />
+      <input type="number" id="harga" placeholder="Harga" required />
+      <input type="number" id="stok" placeholder="Stok" required />
+      <button type="submit">+ Tambah Produk</button>
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>Harga</th>
+          <th>Stok</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="produk-body"></tbody>
+    </table>
+  </section>
+
+  <!-- Halaman Transaksi -->
+  <section id="halaman-transaksi" class="halaman active">
+    <h2>🛒 Transaksi</h2>
+    <form id="form-transaksi">
+      <select id="pilihProduk" required>
+        <option value="">-- Pilih Produk --</option>
+      </select>
+      <input type="number" id="hargaProduk" placeholder="Harga" disabled />
+      <input type="number" id="jumlahProduk" placeholder="Jumlah" min="1" required />
+      <button type="submit">+ Tambah ke Transaksi</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Produk</th>
+          <th>Harga</th>
+          <th>Jumlah</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody id="tabelTransaksiBody"></tbody>
+    </table>
+
+    <h3>Total: <span id="totalBelanja">Rp. 0</span></h3>
+    <button onclick="selesaikanTransaksi()">✅ Selesai Transaksi</button>
+  </section>
+
+  <!-- Halaman Histori -->
+  <section id="halaman-histori" class="halaman">
+    <h2>📜 Riwayat Transaksi</h2> <button onclick="filterHistoriHariIni()">🔍 Lihat Hari Ini</button>
+<button onclick="tampilkanSemuaHistori()">📅 Tampilkan Semua</button>
+ 
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tanggal</th>
+          <th>Waktu</th>
+          <th>Total</th>
+          <th>Detail</th>
+        </tr>
+      </thead>
+      <tbody id="tabelHistoriBody"></tbody>
+    </table>
+    <br>
+    <button onclick="exportLaporanHariIni()">📤 Export Laporan Hari Ini</button>
+  </section>
+
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
